@@ -3,9 +3,12 @@ import java.util.Random;
 
 public class Utils {
 
-    public static final String COUNTING_SORT = "counting sort";
     public static final String INSERTION_SORT = "insertion sort";
     public static final String QUICK_SORT = "quick sort";
+    public static final String COUNTING_SORT = "counting sort";
+    public static final String INTRO_SORT = "intro sort";
+    public static final String MERGE_SORT = "merge sort";
+
 
     public static int[] getRandomArray(int n) {
         int[] randomArray = new int[n];
@@ -38,7 +41,7 @@ public class Utils {
         switch (algorithm.toLowerCase()) {
             case INSERTION_SORT:
                 startTime = System.nanoTime();
-                InsertionSort.sort(array);
+                InsertionSort.sort(array, 0, array.length - 1);
                 endTime = System.nanoTime();
                 break;
             case QUICK_SORT:
@@ -51,14 +54,14 @@ public class Utils {
                 CountingSort.sort(array);
                 endTime = System.nanoTime();
                 break;
-            case "":
+            case INTRO_SORT:
                 startTime = System.nanoTime();
-                CountingSort.sort(array);
+                IntroSort.sort(array);
                 endTime = System.nanoTime();
                 break;
-            case "2":
+            case MERGE_SORT:
                 startTime = System.nanoTime();
-                CountingSort.sort(array);
+                MergeSort.sort(array);
                 endTime = System.nanoTime();
                 break;
             default:
@@ -69,7 +72,7 @@ public class Utils {
         if (printSortedArray) {
             System.out.println("Sorted array: " + Arrays.toString(array));
         }
-       // System.out.println(algorithm + " took: " + totalTime);
+        // System.out.println(algorithm + " took: " + totalTime);
         return totalTime;
     }
 
@@ -79,8 +82,19 @@ public class Utils {
             arrays[i] = getExecutionTimeFor(algorithm, array, false);
         }
         double averageTime = Utils.getAverage(arrays);
-        System.out.println("Average time for : " +algorithm +" "+ averageTime);
+        System.out.println("Average time for : " + algorithm + " " + averageTime);
         return averageTime;
     }
 
+    /**
+     * Swaps the elements for a given array
+     * @param array
+     * @param i
+     * @param j
+     */
+    public static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }

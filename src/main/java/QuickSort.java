@@ -2,7 +2,6 @@ public class QuickSort {
 
     private static int array[];
 
-
     public static int[] sort(int[] arrayToSort) {
         array = arrayToSort;
         return quickSort(0, arrayToSort.length - 1);
@@ -27,7 +26,7 @@ public class QuickSort {
                 j--;
             }
             if (i <= j) {
-                exchangeNumbers(i, j);
+                Utils.swap(array,i, j);
                 //move index to next position on both sides
                 i++;
                 j--;
@@ -40,11 +39,4 @@ public class QuickSort {
             quickSort(i, higherIndex);
         return array;
     }
-
-    private static void exchangeNumbers(int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-
 }

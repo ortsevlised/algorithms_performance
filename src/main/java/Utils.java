@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -68,7 +70,8 @@ public class Utils {
                 throw new RuntimeException("That is not a valid option");
         }
 
-        double totalTime = endTime - startTime;
+        double totalTime = (endTime - startTime) / 1000000.0;
+
         if (printSortedArray) {
             System.out.println("Sorted array: " + Arrays.toString(array));
         }
@@ -82,7 +85,10 @@ public class Utils {
             arrays[i] = getExecutionTimeFor(algorithm, array, false);
         }
         double averageTime = Utils.getAverage(arrays);
-        System.out.println("Average time for : " + algorithm + " " + averageTime);
+
+        System.out.print(StringUtils.capitalize(algorithm) + " - input size " + String.format("%5d", array.length) + ": " + String.format("%f", averageTime) + " ms"
+                + (algorithm.equalsIgnoreCase(INTRO_SORT) ? "\t|\n" : "\t| "));
+
         return averageTime;
     }
 

@@ -24,7 +24,7 @@ public class Algorithms extends Application {
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Input size n");
-        yAxis.setLabel("Run time ns");
+        yAxis.setLabel("Run time in ms");
 
         //creating the chart
         final LineChart<Number, Number> lineChart =
@@ -38,6 +38,7 @@ public class Algorithms extends Application {
         mergeSortSeries.setName("Merge Sort");
         introSortSeries.setName("Intro Sort");
 
+        System.out.println("Performance results:\n");
         int[] keyValues = new int[]{100, 250, 500, 750, 1000, 1250, 2500, 3750, 5000, 6250, 7500, 8750, 10000};
         for (int key : keyValues) {
             insertionSortSeries.getData().add(new XYChart.Data(key, Utils.getAverageTimeFor(Utils.INSERTION_SORT, Utils.getRandomArray(key))));

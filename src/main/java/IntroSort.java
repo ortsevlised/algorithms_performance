@@ -147,8 +147,6 @@ public class IntroSort {
         array = arrayToSort;
         n = array.length;
 
-
-
         sortData();
         return arrayToSort;
     }

@@ -1,5 +1,8 @@
 public class CountingSort {
-
+    /**
+     * Sort algorithm
+     * @param arr
+     */
     public static void sort(int[] arr) {
         int arrayLength = arr.length;
         if (arrayLength == 0) {
@@ -29,10 +32,5 @@ public class CountingSort {
                 arr[j++] = i + min;
             }
         }
-
     }
-
-
-
-
 }

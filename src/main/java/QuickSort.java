@@ -1,13 +1,17 @@
 public class QuickSort {
 
-    private static int array[];
-
     public static int[] sort(int[] arrayToSort) {
-        array = arrayToSort;
-        return quickSort(0, arrayToSort.length - 1);
+        return quickSort(arrayToSort, 0, arrayToSort.length - 1);
     }
 
-    private static int[] quickSort(int lowerIndex, int higherIndex) {
+    /**
+     *
+     * @param array
+     * @param lowerIndex
+     * @param higherIndex
+     * @return a sorted array
+     */
+    private static int[] quickSort(int[] array, int lowerIndex, int higherIndex) {
 
         int i = lowerIndex;
         int j = higherIndex;
@@ -26,7 +30,7 @@ public class QuickSort {
                 j--;
             }
             if (i <= j) {
-                Utils.swap(array,i, j);
+                Utils.swap(array, i, j);
                 //move index to next position on both sides
                 i++;
                 j--;
@@ -34,9 +38,10 @@ public class QuickSort {
         }
         // call quickSort() method recursively
         if (lowerIndex < j)
-            quickSort(lowerIndex, j);
+            quickSort(array, lowerIndex, j);
         if (i < higherIndex)
-            quickSort(i, higherIndex);
+            quickSort(array, i, higherIndex);
+
         return array;
     }
 }

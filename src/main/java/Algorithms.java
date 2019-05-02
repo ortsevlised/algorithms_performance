@@ -39,7 +39,7 @@ public class Algorithms extends Application {
         introSortSeries.setName("Intro Sort");
 
         System.out.println("Performance results:\n");
-        int[] keyValues = new int[]{100, 250, 500, 750, 1000, 1250, 2500, 3750, 5000, 6250, 7500, 8750, 10000};
+        int[] keyValues = new int[]{100, 500, 1000, 1500, 3000, 5000, 7000, 10000, 12500, 15000, 17500,20000, 25000, 30000};
         for (int key : keyValues) {
             insertionSortSeries.getData().add(new XYChart.Data(key, Utils.getAverageTimeFor(Utils.INSERTION_SORT, Utils.getRandomArray(key))));
             quickSortSeries.getData().add(new XYChart.Data(key, Utils.getAverageTimeFor(Utils.QUICK_SORT, Utils.getRandomArray(key))));
@@ -55,8 +55,9 @@ public class Algorithms extends Application {
         lineChart.getData().add(mergeSortSeries);
         lineChart.getData().add(introSortSeries);
 
-
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
+
+

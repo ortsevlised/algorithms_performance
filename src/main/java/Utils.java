@@ -11,7 +11,11 @@ public class Utils {
     public static final String INTRO_SORT = "intro sort";
     public static final String MERGE_SORT = "merge sort";
 
-
+    /**
+     *
+     * @param n the size of the array
+     * @return a random array of size n
+     */
     public static int[] getRandomArray(int n) {
         int[] randomArray = new int[n];
         for (int i = 0; i < n; i++) {
@@ -36,6 +40,13 @@ public class Utils {
         return sum / array.length;
     }
 
+    /**
+     * Get execution time for the desired algorithm
+     * @param algorithm name of the algorithm chosen
+     * @param array the array to sort
+     * @param printSortedArray whether to print each one of the sorted arrays
+     * @return
+     */
     public static double getExecutionTimeFor(String algorithm, int[] array, boolean printSortedArray) {
         long startTime;
         long endTime;
@@ -75,10 +86,15 @@ public class Utils {
         if (printSortedArray) {
             System.out.println("Sorted array: " + Arrays.toString(array));
         }
-        // System.out.println(algorithm + " took: " + totalTime);
         return totalTime;
     }
 
+    /**
+     * Get the average execution time for an algorithm
+     * @param algorithm
+     * @param array
+     * @return
+     */
     public static double getAverageTimeFor(String algorithm, int[] array) {
         double[] arrays = new double[10];
         for (int i = 0; i < 10; i++) {
@@ -88,7 +104,6 @@ public class Utils {
 
         System.out.print(StringUtils.capitalize(algorithm) + " - input size " + String.format("%5d", array.length) + ": " + String.format("%f", averageTime) + " ms"
                 + (algorithm.equalsIgnoreCase(INTRO_SORT) ? "\t|\n" : "\t| "));
-
         return averageTime;
     }
 

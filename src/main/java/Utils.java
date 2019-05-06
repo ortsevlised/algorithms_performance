@@ -1,5 +1,3 @@
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -102,7 +100,7 @@ public class Utils {
         }
         double averageTime = Utils.getAverage(arrays);
 
-        System.out.print(StringUtils.capitalize(algorithm) + " - input size " + String.format("%5d", array.length) + ": " + String.format("%f", averageTime) + " ms"
+        System.out.print(algorithm + " - input size " + String.format("%5d", array.length) + ": " + String.format("%f", averageTime) + " ms"
                 + (algorithm.equalsIgnoreCase(INTRO_SORT) ? "\t|\n" : "\t| "));
         return averageTime;
     }

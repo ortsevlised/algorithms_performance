@@ -1,3 +1,5 @@
+### Algorithm performance comparison 
+
 In order to run the application please refer to the main method of the “Algorithms” class, it will run the performance comparison of the following 5 algorithms:
 - Insertion sort: O(n2)
 - Quick sort: O(n log n)
